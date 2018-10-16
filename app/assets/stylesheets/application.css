@@ -1,0 +1,28 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ *= require bower_components/bootstrap/dist/css/bootstrap.min
+ *= require font-awesome
+ *= require bower_components/font-awesome/css/font-awesome.min
+ *= require bower_components/Ionicons/css/ionicons.min
+ *= require bower_components/datatables.net-bs/css/dataTables.bootstrap.min
+ *= require css/AdminLTE.min
+ *= require css/skins/_all-skins.min
+ *= require bower_components/morris.js/morris
+ *= require bower_components/jvectormap/jquery-jvectormap
+ *= require bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min
+ *= require bower_components/bootstrap-daterangepicker/daterangepicker
+ *= require_tree .
+ *= require_self
+ */

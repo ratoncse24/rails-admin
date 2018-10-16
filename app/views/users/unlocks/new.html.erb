@@ -1,0 +1,21 @@
+<h4 class="text-center text-success">Resend unlock instructions</h4>
+<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="form-group has-feedback">
+    <%= f.email_field :email , autofocus: true,autocomplete: "email",  :class=>'form-control', :placeholder=>'Enter Email' %>
+    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-2">
+
+    </div>
+    <!-- /.col -->
+    <div class="col-xs-10">
+      <%= f.submit 'Resend unlock instructions', :class=>'btn btn-primary btn-block btn-flat' %>
+    </div>
+    <!-- /.col -->
+  </div>
+
+<% end %>

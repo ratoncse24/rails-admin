@@ -1,0 +1,13 @@
+<table>
+  <tr> <td>Name</td><td><%= @product.item_name %></td> </tr>
+  <tr> <td>
+    <% (0...@product.item_images.count).each do |image| %>
+
+    <%= image_tag(@product.thumbnail(image)) %>
+
+    <% end %>
+
+  </td> </tr>
+<!--  <tr> <td><%#= image_tag(@product.thumbnail) %></td> </tr>-->
+<!--  <tr> <td>Download</td><td><%#= link_to 'download', @product.item_images, download: '' %></td> </tr>-->
+</table>

@@ -1,0 +1,142 @@
+<!-- general form elements disabled -->
+<div class="col-md-8 col-md-offset-2">
+  <br/>
+  <br/>
+  <div class="box box-warning">
+    <div class="box-header with-border">
+      <h3 class="box-title"><%= title %></h3>
+    </div>
+
+    <!-- /.box-header -->
+    <div class="box-body">
+
+      <% if setting.errors.any? %>
+
+        <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h4><i class="icon fa fa-ban"></i> Validations Errors!</h4>
+
+          <ul>
+            <% setting.errors.full_messages.each do  |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+
+      <% end %>
+
+      <%= form_with(model: setting, local: true) do |form|  %>
+
+        <!-- text input -->
+        <div class="form-group">
+          <%= form.label :company_name %>
+          <%= form.text_field :company_name, :class=> "form-control"%>
+        </div>
+
+        <!-- text input -->
+        <div class="form-group">
+          <%= form.label :company_title %>
+          <%= form.text_field :company_title, :class=> "form-control"%>
+        </div>
+
+        <!-- text input -->
+        <div class="form-group">
+          <%= form.label :company_phone %>
+          <%= form.text_field :company_phone, :class=> "form-control"%>
+        </div>
+
+        <!-- text input -->
+        <div class="form-group">
+          <%= form.label :company_email %>
+          <%= form.email_field :company_email, :class=> "form-control"%>
+        </div>
+
+        <!-- text input -->
+        <div class="form-group">
+          <%= form.label :company_address %>
+          <%= form.text_area :company_address, :class => 'form-control'  %>
+        </div>
+
+        <!-- text input -->
+        <div class="form-group">
+          <%= form.label :company_about %>
+          <%= form.text_area :company_about, :class => 'form-control'  %>
+        </div>
+
+
+        <!-- text input -->
+        <div class="form-group">
+          <%= form.label :company_facebook %>
+          <%= form.text_field :company_facebook, :class=> "form-control"%>
+        </div>
+
+        <!-- text input -->
+        <div class="form-group">
+          <%= form.label :company_twitter %>
+          <%= form.text_field :company_twitter, :class=> "form-control"%>
+        </div>
+
+        <!-- text input -->
+        <div class="form-group">
+          <%= form.label :company_youtube %>
+          <%= form.text_field :company_youtube, :class=> "form-control"%>
+        </div>
+
+        <!-- text input -->
+        <div class="form-group">
+          <%= form.label :company_other_link %>
+          <%= form.text_field :company_other, :class=> "form-control"%>
+        </div>
+
+        <!-- text input -->
+        <div class="form-group">
+          <%= form.label :company_location %>
+          <%= form.text_field :company_location, :class=> "form-control"%>
+        </div>
+
+
+
+        <div class="form-group">
+          <%= form.label :company_logo %>
+          <div class="row">
+            <% if form.object.logo.attached? && form.object.logo.content_type.in?("%{image/jpeg,image/png,image/jpg}")  %>
+              <%= image_tag form.object.logo_thumbnail  %>
+
+              <%= link_to "Delete", delete_image_attachment_category_url(form.object.logo.id),
+                          method: :delete,
+                          data: { confirm: 'Are you sure?' },  :class => "label label-danger" %>
+            <% end %>
+          </div>
+
+          <%= form.file_field :logo, :class => "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :company_fevicon %>
+          <div class="row">
+            <% if form.object.fevicon.attached? && form.object.fevicon.content_type.in?("%{image/jpeg,image/png,image/jpg}")  %>
+              <%= image_tag form.object.fevicon_thumbnail  %>
+
+              <%= link_to "Delete", delete_image_attachment_category_url(form.object.fevicon.id),
+                          method: :delete,
+                          data: { confirm: 'Are you sure?' },  :class => "label label-danger" %>
+            <% end %>
+          </div>
+
+          <%= form.file_field :fevicon, :class => "form-control" %>
+        </div>
+
+        <%= form.submit :class => "btn btn-success pull-right" %>
+
+
+
+      <% end %>
+
+
+
+
+      <%= link_to "Back" , categories_path , :class => "btn btn-warning "%>
+
+    </div>
+  </div>
+</div>

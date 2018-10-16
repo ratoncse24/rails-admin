@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product: one
+  category_belongs: MyString
+
+two:
+  product: two
+  category_belongs: MyString

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body  class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="/public"><b>Admin</b>Panel</a>
+  </div>
+  <!-- /.login-logo -->
+
+  <div class="login-box-body">
+    <% if notice   %>
+
+      <p class="login-box-msg"><%= notice %></p>
+
+    <% end %>
+    <% if alert   %>
+
+      <p class="login-box-msg"><%= alert %></p>
+
+    <% end %>
+
+
+    <%= yield %>
+  <!-- /.login-box-body -->
+
+    <%= render 'users/shared/links' %>
+
+  </div>
+
+</div>
+<!-- /.login-box -->
+</body>
+</html>

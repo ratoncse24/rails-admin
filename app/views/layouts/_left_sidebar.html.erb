@@ -1,0 +1,76 @@
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <%= image_tag 'user2-160x160.jpg', :class=>'img-circle', :alt => "user image" %>
+      </div>
+      <div class="pull-left info">
+        <p><%= current_user.name %></p>
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+      </div>
+    </div>
+
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="header">MAIN NAVIGATION</li>
+
+      <li class=" <%= 'active' if controller?('dashboard') %>">
+        <%= link_to("/") do %>
+          <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+        <% end %>
+      </li>
+
+      <li class=" <%= 'active' if controller?('categories') %>">
+        <%= link_to( categories_path ) do %>
+          <i class="fa fa-star"></i> <span>Categories</span>
+        <% end %>
+      </li>
+
+      <li class=" <%= 'active' if controller?('products') %>">
+        <%= link_to( products_path ) do %>
+          <i class="fa fa-star"></i> <span>Products</span>
+        <% end %>
+      </li>
+
+      <li class=" <%= 'active' if controller?('sliders') %>">
+        <%= link_to( sliders_path ) do %>
+          <i class="fa fa-star"></i> <span>Slider</span>
+        <% end %>
+      </li>
+
+
+      <li class=" <%= 'active' if controller?('banners') %>">
+        <%= link_to( banners_path ) do %>
+          <i class="fa fa-star"></i> <span>Banners</span>
+        <% end %>
+      </li>
+
+      <li class=" <%= 'active' if controller?('blogs') %>">
+        <%= link_to( blogs_path ) do %>
+          <i class="fa fa-star"></i> <span>Blogs</span>
+        <% end %>
+      </li>
+
+      <li class=" <%= 'active' if controller?('customers') %>">
+        <%= link_to( customers_path ) do %>
+          <i class="fa fa-star"></i> <span>Customer</span>
+        <% end %>
+      </li>
+
+
+      <li class=" <%= 'active' if controller?('settings') %>">
+        <%= link_to( settings_path ) do %>
+          <i class="fa fa-connectdevelop"></i> <span>Setting</span>
+        <% end %>
+      </li>
+
+
+
+
+
+
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>

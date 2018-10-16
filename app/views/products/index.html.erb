@@ -1,0 +1,72 @@
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">All Product </h3>
+    <div class="pull-right">
+      <%= link_to "Add New", new_product_path, :class => "btn btn-primary"  %>
+    </div>
+
+    <div class="row">
+      <% if notice %>
+        <div class="col-md-6 col-md-offset-3">
+          <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h4><i class="icon fa fa-check"></i> Message!</h4>
+            <%= notice %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+
+    <table id="example1" class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>Short description</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @products.each do |product| %>
+
+        <tr>
+          <td><%= product.item_name %></td>
+          <td><%= product.category.name %></td>
+          <td><%= product.item_price %></td>
+          <td>
+            <% if product.item_status == 1 %>
+              <span class="label label-success">Active</span>
+            <% else %>
+              <span class="label label-warning">DeActive</span>
+            <% end %>
+
+          </td>
+          <td><%= product.item_short_description %></td>
+          <td>
+            <%= link_to "Show", product, :class=>"btn btn-info" %>
+
+            <%= link_to edit_product_path(product) , :class=> "btn btn-success" do %>
+              <%= fa_icon "edit" %>
+            <% end %>
+
+            <%= link_to product, method: :delete , data: { confirm: "Are you sure ? "} ,:class =>"btn btn-danger" do %>
+              <%= fa_icon "trash" %>
+            <% end %>
+
+          </td>
+        </tr>
+
+      <% end %>
+
+
+      </tbody>
+    </table>
+  </div>
+</div>
