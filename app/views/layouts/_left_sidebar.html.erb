@@ -33,6 +33,18 @@
         <% end %>
       </li>
 
+      <li class=" <%= 'active' if controller?('offers') %>">
+        <%= link_to( offers_path ) do %>
+          <i class="fa fa-star"></i> <span>Offers</span>
+        <% end %>
+      </li>
+
+      <li class=" <%= 'active' if controller?('email_marketings') %>">
+        <%= link_to( email_marketings_path ) do %>
+          <i class="fa fa-star"></i> <span>Email Marketing</span>
+        <% end %>
+      </li>
+
       <li class=" <%= 'active' if controller?('sliders') %>">
         <%= link_to( sliders_path ) do %>
           <i class="fa fa-star"></i> <span>Slider</span>

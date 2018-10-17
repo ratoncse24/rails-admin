@@ -1,0 +1,2 @@
+class EmailMarketing < ApplicationRecord
+end

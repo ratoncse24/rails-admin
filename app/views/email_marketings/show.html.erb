@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sender name:</strong>
+  <%= @email_marketing.sender_name %>
+</p>
+
+<p>
+  <strong>Sender email:</strong>
+  <%= @email_marketing.sender_email %>
+</p>
+
+<p>
+  <strong>Reciver email:</strong>
+  <%= @email_marketing.reciver_email %>
+</p>
+
+<p>
+  <strong>Email subject:</strong>
+  <%= @email_marketing.email_subject %>
+</p>
+
+<p>
+  <strong>Email body:</strong>
+  <%= @email_marketing.email_body %>
+</p>
+
+<%= link_to 'Edit', edit_email_marketing_path(@email_marketing) %> |
+<%= link_to 'Back', email_marketings_path %>

@@ -1,0 +1,79 @@
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Offers </h3>
+    <div class="pull-right">
+      <%= link_to "Add New", new_offer_path, :class => "btn btn-primary"  %>
+    </div>
+
+    <div class="row">
+      <% if notice %>
+        <div class="col-md-6 col-md-offset-3">
+          <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h4><i class="icon fa fa-check"></i> Message!</h4>
+            <%= notice %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+
+    <table id="example1" class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>Offer Name</th>
+        <th>Offer Code</th>
+        <th>Offer Value</th>
+        <th>Minimum Value</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @offers.each do |offer| %>
+
+        <tr>
+          <td><%= offer.offer_name %></td>
+
+          <td><%= offer.offer_code %></td>
+          <td><%= offer.offer_value %></td>
+          <td><%= offer.minimum_value %></td>
+          <td><%= offer.start_date %></td>
+          <td><%= offer.end_date %></td>
+
+
+          <td>
+            <% if offer.status == 1 %>
+              <span class="label label-success">Active</span>
+            <% else %>
+              <span class="label label-warning">DeActive</span>
+            <% end %>
+
+          </td>
+
+          <td>
+
+            <%= link_to edit_offer_path(offer) , :class=> "btn btn-success" do %>
+              <%= fa_icon "edit" %>
+            <% end %>
+
+            <%= link_to offer, method: :delete , data: { confirm: "Are you sure ? "} ,:class =>"btn btn-danger" do %>
+              <%= fa_icon "trash" %>
+            <% end %>
+
+          </td>
+        </tr>
+
+      <% end %>
+
+
+      </tbody>
+    </table>
+  </div>
+</div>

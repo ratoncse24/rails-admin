@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :email_marketings
+  resources :offers
 # get "blogs", to: 'blogs#index'
 
 resources :customers , only: [:index,:edit,:update,:destroy]
+
   resources :blogs
   resources :banners
   resources :sliders
