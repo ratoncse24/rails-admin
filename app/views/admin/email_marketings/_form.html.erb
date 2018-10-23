@@ -1,0 +1,87 @@
+<!-- general form elements disabled -->
+<div class="col-md-8 col-md-offset-2">
+  <br/>
+  <br/>
+  <div class="box box-warning">
+    <div class="box-header with-border">
+      <h3 class="box-title"><%= title %></h3>
+    </div>
+
+    <!-- /.box-header -->
+    <div class="box-body">
+
+      <% if email_marketing.errors.any? %>
+
+        <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h4><i class="icon fa fa-ban"></i> Validations Errors!</h4>
+
+          <ul>
+            <% email_marketing.errors.full_messages.each do  |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+
+      <% end %>
+
+      <%= form_with(model: email_marketing, local: true) do |form|  %>
+
+        <!-- text input -->
+        <div class="form-group">
+          <%= form.label :sender_name %>
+          <%= form.text_field :sender_name , :class=>"form-control", :placeholder=>"Enter..." %>
+        </div>
+
+
+        <!-- text input -->
+        <div class="form-group">
+          <%= form.label :sender_email %>
+          <%= form.email_field :sender_email , :class=>"form-control", :placeholder=>"Enter..." %>
+        </div>
+
+
+        <div class="form-group">
+
+          <%= form.label :send_type %>
+          <%= form.select(:send_type, ["All", "Selected Customer", "Custom Email"], {}, {:class => "form-control"}) %>
+        </div>
+
+        <!-- text input -->
+        <div class="form-group" style="display:none" id="reciver_email">
+          <%= form.label :reciver_email %>
+          <%#= form.email_field :reciver_email , :class=>"form-control", :placeholder=>"Enter..." %>
+          <%= form.select("reciver_email", options_for_select(@customers.map { |obj| [obj['name'], obj['email']]}, form.object.reciver_email), {}, {:class => "form-control"} ) %>
+        </div>
+
+        <!-- text input -->
+        <div class="form-group" style="display:none" id="reciver_custom_email">
+          <%= form.label :custom_email %>
+          <%= form.email_field :custom_email , :class=>"form-control", :placeholder=>"Enter..." %>
+
+        </div>
+
+        <!-- text input -->
+        <div class="form-group">
+          <%= form.label :email_subject %>
+          <%= form.text_field :email_subject , :class=>"form-control", :placeholder=>"Enter..." %>
+        </div>
+
+
+
+
+        <div class="form-group">
+          <%= form.label :email_body %>
+          <%= form.text_area :email_body, rows: 5, cols: 25, :class => "tinymce" %>
+        </div>
+
+
+        <%= form.submit :value => "Send Email Now", :class => "btn btn-success pull-right" %>
+
+      <% end %>
+
+      <%= link_to "Back" , admin_email_marketings_path , :class => "btn btn-warning "%>
+      <%= tinymce %>
+    </div>
+  </div>
+</div>

@@ -1,2 +1,0 @@
-class EmailMarketing < ApplicationRecord
-end

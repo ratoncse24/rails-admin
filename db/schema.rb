@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_17_185901) do
+ActiveRecord::Schema.define(version: 2018_10_21_065154) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -115,6 +115,20 @@ ActiveRecord::Schema.define(version: 2018_10_17_185901) do
     t.index ["customer_id"], name: "index_offers_on_customer_id"
   end
 
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "order_number"
+    t.string "order_status"
+    t.decimal "order_pricetotal", precision: 10
+    t.string "order_payment_type"
+    t.string "order_giftcard"
+    t.bigint "customers_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "product_id"
+    t.index ["customers_id"], name: "index_orders_on_customers_id"
+    t.index ["product_id"], name: "index_orders_on_product_id"
+  end
+
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "item_code", null: false
     t.string "item_name", null: false
@@ -152,6 +166,7 @@ ActiveRecord::Schema.define(version: 2018_10_17_185901) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", default: ""

@@ -16,63 +16,63 @@
       <li class="header">MAIN NAVIGATION</li>
 
       <li class=" <%= 'active' if controller?('dashboard') %>">
-        <%= link_to("/") do %>
+        <%= link_to("/admin") do %>
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
         <% end %>
       </li>
 
       <li class=" <%= 'active' if controller?('categories') %>">
-        <%= link_to( categories_path ) do %>
+        <%= link_to( admin_categories_path ) do %>
           <i class="fa fa-star"></i> <span>Categories</span>
         <% end %>
       </li>
 
       <li class=" <%= 'active' if controller?('products') %>">
-        <%= link_to( products_path ) do %>
+        <%= link_to( admin_products_path ) do %>
           <i class="fa fa-star"></i> <span>Products</span>
         <% end %>
       </li>
 
       <li class=" <%= 'active' if controller?('offers') %>">
-        <%= link_to( offers_path ) do %>
+        <%= link_to( admin_offers_path ) do %>
           <i class="fa fa-star"></i> <span>Offers</span>
         <% end %>
       </li>
 
       <li class=" <%= 'active' if controller?('email_marketings') %>">
-        <%= link_to( email_marketings_path ) do %>
+        <%= link_to( admin_email_marketings_path ) do %>
           <i class="fa fa-star"></i> <span>Email Marketing</span>
         <% end %>
       </li>
 
       <li class=" <%= 'active' if controller?('sliders') %>">
-        <%= link_to( sliders_path ) do %>
+        <%= link_to( admin_sliders_path ) do %>
           <i class="fa fa-star"></i> <span>Slider</span>
         <% end %>
       </li>
 
 
       <li class=" <%= 'active' if controller?('banners') %>">
-        <%= link_to( banners_path ) do %>
+        <%= link_to( admin_banners_path ) do %>
           <i class="fa fa-star"></i> <span>Banners</span>
         <% end %>
       </li>
 
       <li class=" <%= 'active' if controller?('blogs') %>">
-        <%= link_to( blogs_path ) do %>
+        <%= link_to( admin_blogs_path ) do %>
           <i class="fa fa-star"></i> <span>Blogs</span>
         <% end %>
       </li>
 
       <li class=" <%= 'active' if controller?('customers') %>">
-        <%= link_to( customers_path ) do %>
+        <%= link_to( admin_customers_path ) do %>
           <i class="fa fa-star"></i> <span>Customer</span>
         <% end %>
       </li>
 
 
       <li class=" <%= 'active' if controller?('settings') %>">
-        <%= link_to( settings_path ) do %>
+        <%= link_to( admin_settings_path ) do %>
           <i class="fa fa-connectdevelop"></i> <span>Setting</span>
         <% end %>
       </li>

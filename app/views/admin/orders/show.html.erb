@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Order number:</strong>
+  <%= @admin_order.order_number %>
+</p>
+
+<p>
+  <strong>Order status:</strong>
+  <%= @admin_order.order_status %>
+</p>
+
+<p>
+  <strong>Order pricetotal:</strong>
+  <%= @admin_order.order_pricetotal %>
+</p>
+
+<p>
+  <strong>Order payment type:</strong>
+  <%= @admin_order.order_payment_type %>
+</p>
+
+<p>
+  <strong>Order giftcard:</strong>
+  <%= @admin_order.order_giftcard %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @admin_order.customers_id %>
+</p>
+
+<%= link_to 'Edit', edit_admin_order_path(@admin_order) %> |
+<%= link_to 'Back', admin_orders_path %>
